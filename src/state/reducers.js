@@ -24,11 +24,11 @@ export function reducer(state=initialState, action){
         ...state,
             car:{
               ...state.car,
-              features: [...state.car.features,{
-                name: action.payload.name,
-                price: action.payload.price
-              }
-              ],
+              features: [...state.car.features, action.payload].filter(
+                (elem, index, self) => {
+                  return index === self.indexOf(item) ;
+                }
+              ),
               price: state.car.price + action.payload.price
             } 
       }
