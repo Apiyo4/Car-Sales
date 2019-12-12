@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import { type } from 'os';
+
 
 const initialState = {
   additionalPrice: 0,
