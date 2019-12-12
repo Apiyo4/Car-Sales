@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export function Header({car}){
-  console.log(car);
+
   return (
     <>
       <figure className="image is-128x128">
