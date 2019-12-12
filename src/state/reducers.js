@@ -26,7 +26,7 @@ export function reducer(state=initialState, action){
               ...state.car,
               features: [...state.car.features, action.payload].filter(
                 (elem, index, self) => {
-                  return index === self.indexOf(item) ;
+                  return index === self.indexOf(elem) ;
                 }
               ),
               price: state.car.price + action.payload.price
