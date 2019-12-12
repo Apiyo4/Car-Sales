@@ -8,7 +8,7 @@ const initialState = {
     name: '2019 Ford Mustang',
     image:
       'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-    features: [{ id: 1, name: 'V-6 engine', price: 1500 }]
+    features: []
   },
   additionalFeatures: [
     { id: 1, name: 'V-6 engine', price: 1500 },
@@ -24,11 +24,7 @@ export function reducer(state=initialState, action){
         ...state,
             car:{
               ...state.car,
-              features: [...state.car.features, action.payload].filter(
-                (elem, index, self) => {
-                  return index === self.indexOf(elem) ;
-                }
-              ),
+            features: [...state.car.features, action.payload],
               price: state.car.price + action.payload.price
             } 
       }
@@ -38,7 +34,7 @@ export function reducer(state=initialState, action){
             car:{
               ...state.car,
               features: state.car.features.filter (item=> {
-                return item.id !== action.payload
+                return item.id !== action.payload.id
                } ),
                price: state.car.price - action.payload.price
             }
